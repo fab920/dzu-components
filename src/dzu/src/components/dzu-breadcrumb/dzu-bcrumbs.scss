@@ -1,0 +1,91 @@
+@import '../base.scss';
+@import '../var.scss';
+@import '../bg.scss';
+
+:host {
+  display: block;
+}
+
+/**
+ * @module
+ *
+ * breadcrumb Navigation
+ */
+.bcrumbs {
+	display: block; /* inline-block führt zu einem margin-bottom, der nicht zu beseitigen ist */
+	line-height: $head-height;
+	height: $head-height;
+	overflow: hidden;
+	user-select: none;
+   background-color: $blue;
+
+
+}
+
+.bcrumbs > * {
+    background-color: $blue; //$pc-dark-bg;
+  }
+
+/**
+ * Farben
+ */
+.bcrumbs-darkblue > * {
+	background-color: $darkblue;
+	color: white;
+
+	&[aria-selected]:after,
+	&:hover:after,
+	&[aria-selected],
+	&:hover {
+		background-color: $blue;
+	}
+
+	&:after {
+		background-color: $darkblue;
+	}
+}
+
+.bcrumbs-blue > * {
+	background-color: $blue;
+	color: white;
+
+	&[aria-selected]:after,
+	&:hover:after,
+	&[aria-selected],
+	&:hover {
+		background-color: $darkblue;
+	}
+
+	&:after {
+		background-color: $blue;
+	}
+}
+
+/**
+ * Lets add the numbers for each link using CSS counters.
+ * flag is the name of the counter.
+ * to be defined using counter-reset in the parent element of the links
+ * we will use the :before element to show numbers
+ * TODO if needed
+ */
+/*
+.bcrumbs-counter {
+	counter-reset: flag;
+}
+
+.bcrumbs-counter li:before {
+	content: counter(flag);
+	counter-increment: flag;
+	/ * some styles now * /
+	border-radius: 100%;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin: 8px 0;
+	position: absolute;
+	top: 0;
+	left: 30px;
+	background: #444;
+	background: linear-gradient(#444, #222);
+	font-weight: bold;
+}*/

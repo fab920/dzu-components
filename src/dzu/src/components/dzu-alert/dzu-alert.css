@@ -1,0 +1,42 @@
+:host {
+  display: block;
+}
+
+
+/**
+ * If you need border/radius asign extra class
+ * for bg color info, warning, error, ... use bg-XXX
+ * event .alert-medium mit h-padding $content-padding-medium
+ */
+.alert {
+	position: relative;
+	display: table;
+	/*width: 100%; auskommentiert sonst kann man keinen margin geben*/
+
+	> span {
+		display: table-cell;
+		vertical-align: middle;
+		padding: ($head-height - 36px) / 2; /* damit passt das alert in einen header oder footer */
+		padding-left: $content-padding-medium;
+		padding-right: $content-padding-medium;
+
+		&:first-child {
+			padding-right: 0;
+			width: 1%;
+		}
+
+		&:nth-child(2) {
+			padding-left: $content-padding-medium;
+		}
+
+		&:first-child img,
+		&:first-child .sp {
+			display: block;
+		}
+	}
+
+	/* Warum?
+	 * &:last-child {
+		margin-bottom: 0;
+	}*/
+}

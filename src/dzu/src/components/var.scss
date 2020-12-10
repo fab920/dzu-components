@@ -1,0 +1,269 @@
+/**
+ * Paper Schatten
+ * http://www.google.com/design/spec/what-is-material/elevation-shadows.html
+ * https://www.polymer-project.org/0.5/docs/elements/material.html#shadow-effect
+ */
+$bs-1: 0px 1px 4px 0px rgba(0, 0, 0, 0.37);
+$bs-2: 0px 6px 11px 0px rgba(0, 0, 0, 0.33),
+				0px 6px 4px 0px rgba(0, 0, 0, 0.19);
+$bs-3: 0px 13px 25px 0px rgba(0, 0, 0, 0.3),
+				0px 11px 7px 0px rgba(0, 0, 0, 0.19);
+$bs-4: 0px 18px 39px 0px rgba(0, 0, 0, 0.3),
+				0px 14px 12px 0px rgba(0, 0, 0, 0.19);
+$bs-5: 0px 27px 55px 0px rgba(0, 0, 0, 0.3),
+				0px 17px 17px 0px rgba(0, 0, 0, 0.15);
+
+// Colors - TODO select Colors from MD
+$white: #ffffff;
+$black: #000000;
+
+$lightgray: #eaeaea;
+$gray: #c8c8c8;
+$darkgray: #555555;
+
+$size: desktop;
+
+// Neue grau Werte
+$lightgray: #e6e6e6;
+$gray: #aaaaaa;
+$darkgray: #6e6e6e;
+
+$lightgreen: #88FF88;
+$green: #44cc44;
+$darkgreen: #0b3720;
+
+$lightblue: #d1e1f6;
+$blue: #a4c0e4;
+$darkblue: #4f76a8;
+
+$lightred: #C82611;
+$red: #a61400;
+$darkred: #830F00;
+
+$lightyellow: #fffdf8;
+$yellow: #fff6d5;
+$darkyellow: #ffe78d;
+
+// Farbparlette
+// Primary Color
+$pc-bg: $blue;
+$pc-c: $white;
+$pc-light-bg: $lightblue;
+$pc-light-c: $darkgray;
+$pc-dark-bg: $darkblue;
+$pc-dark-c: $white;
+
+// Link
+$link-color: $darkblue;
+$link-color-visited: $blue;
+
+// Accent Color
+$pink: #D91D3E;
+$lightpink: #F27087;
+
+// Accent Color
+$ac-bg: #FF4081;
+$ac-c: $white;
+$ac-light-bg: #FF80AB;
+$ac-light-c: $white;
+$ac-dark-bg: #F50057;
+$ac-dark-c: $white;
+
+$border: 1px solid $gray;
+$border-radius: 0;
+
+$content-margin: 4px;
+$content-padding: 4px;
+$content-margin-medium: 16px;
+$content-padding-medium: 16px;
+$content-margin-large: 20px;
+$content-padding-large: 20px;
+
+/* Siehe http://www.google.com/design/spec/components/tabs.html#tabs-specs*/
+// 48px für Desktop und Mobile
+$head-height: 48px;
+@if $size == mobile {
+	@if $theme == "ios" {
+		$head-height: 49px;
+	} @else {
+		$head-height: 56px;
+	}
+}
+
+$tail-height: $head-height;
+$tab-head-height: $head-height;
+
+$content-line-height: 12px;
+$dropdown-background-color: $blue;
+$dropdown-head-background-color: $darkblue;
+
+/**
+ * Transition speed
+ * fast für Aktionen bei denen der Nutzer Warten muss
+ * slow für "dekorative" Aktionen zb hover
+ */
+$fast: 0.2s; // Anlog zu $.fx.speeds.fast
+$medium: 0.4s; // Anlog zu $.fx.speeds._default
+$slow: 0.6s; // Anlog zu $.fx.speeds.slow
+
+/** Layout properties for cards **/
+$card-width-large: 320px;
+
+
+$white: #ffffff;
+$black: #000000;
+
+$lightgray: #BDB598;
+$gray: #89867A;
+$darkgray: #99978E;
+
+// Neue grau Werte
+// $lightgray: #e6e6e6;
+// $gray: #aaaaaa;
+// $darkgray: #6e6e6e;
+//
+// $lightgreen: #4EBE88;
+// $green: #2CAC6E;
+// $darkgreen: #09A359;
+//
+// $lightblue: #79C7FF;
+// $blue: #109CFF;
+// $darkblue: #00518B;
+//
+// $lightred: #F27087;
+// $red: #E54763;
+// $darkred: #D91D3E;
+//
+// $lightyellow: #FFFFFF;
+// $yellow: #FFF6D2;
+// $darkyellow: #ffe78d;
+
+$lightgray: #e6e6e6;
+$gray: #aaaaaa;
+$darkgray: #6e6e6e;
+
+$lightgreen: #4EBE88;
+$green: #2CAC6E;
+$darkgreen: #09A359;
+
+$lightblue: #d1e1f6;
+$blue: #a4c0e4;
+$darkblue: #074D7E;
+
+$lightred: #C82611;
+$red: #a61400;
+$darkred: #830F00;
+
+$lightyellow: #FFFFFF;
+$yellow: #FFF6D2;
+$darkyellow: #ffe78d;
+
+// Accent Color
+$pink: #D91D3E;
+$lightpink: #F27087;
+
+// Farbparlette
+// Primary Color
+$pc-bg: $yellow;
+$pc-c: $black;
+$pc-light-bg: $lightyellow;
+$pc-light-c: $black;
+$pc-dark-bg: $darkyellow;
+$pc-dark-c: $black;
+
+// Accent Color
+$ac-bg: $blue;
+$ac-c: $black;
+$ac-light-bg: $lightblue;
+$ac-light-c: $black;
+$ac-dark-bg: $darkblue;
+$ac-dark-c: $white;
+
+$border: 1px solid $gray;
+$border-radius: 3px;
+$border-radius-big: 10px;
+$border-large: 5px solid $lightgray;
+$border-radius-large: 15px;
+$container-border: 1px solid $lightgray;
+/**
+ * TODO get rid of all these colors
+ */
+$content-alt-color: $darkgray;
+$content-background-color: $lightyellow;
+$content-background-alt-color: $yellow;
+$content-background-user-color: $lightgreen;
+$content-border: 1px solid $gray;
+$content-box-shadow: 2px 2px 1px $gray;
+$content-color: black;
+$content-line-height: 12px;
+$content-height: 600px;
+$content-margin: 4px;
+$content-margin-medium: 12px;
+$content-margin-large: 20px;
+$content-padding: 4px;
+$content-padding-medium: 12px;
+$content-padding-large: 20px;
+$content-light-color: $gray;
+
+$darkpc: $darkyellow;
+$darkpctext: #000000;
+
+$head-background-color: $darkyellow;
+$head-color: black;
+$head-border: 1px solid $lightgray;
+
+/* Siehe http://www.google.com/design/spec/components/tabs.html#tabs-specs*/
+// 48px für Desktop und Mobile
+$head-height: 48px;
+@if $size == mobile {
+	@if $theme == "ios" {
+		$head-height: 49px;
+	} @else {
+		$head-height: 56px;
+	}
+}
+
+$head-extension-heigh: 72px;
+
+$hover-background-color: $lightblue;
+$hover-color: black;
+
+$link-color: $darkblue;
+$link-color-visited: #8A4E90;
+$link-alt-color: #000B66;
+$layer-border: 1px solid $lightgray;
+
+$pc: $yellow;
+
+$popup-background-color: $blue;
+$popup-color: black;
+$popup-border: 1px solid $lightgray;
+$popup-box-shadow: 2px 2px 2px rgba(200, 200, 200, 0.3);
+$popup-head-background-color: $darkblue;
+$popup-head-color: white;
+
+$second-head-background-color: $lightblue;
+$second-head-color: black;
+$second-head-border: 1px solid $lightblue;
+
+$searchField-background-color: #F9F9F9;
+
+$searchResults-alt-color: black;
+$searchResults-background-color: $lightyellow;
+$searchResults-background-alt-color: $yellow;
+$searchResults-color: black;
+$searchResults-border: 1px solid $lightgray;
+
+$tail-height: $head-height;
+
+/**
+ * Transition speed
+ * fast für Aktionen bei denen der Nutzer Warten muss
+ * slow für "dekorative" Aktionen zb hover
+ */
+$fast: 0.2s; /* Anlog zu $.fx.speeds.fast */
+$medium: 0.4s; // Anlog zu $.fx.speeds._default
+$slow: 0.6s; // Anlog zu $.fx.speeds.slow
+
+/** Layout properties for cards **/
+$card-width-large: 320px;

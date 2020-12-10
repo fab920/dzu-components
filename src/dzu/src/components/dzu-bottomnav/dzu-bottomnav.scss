@@ -1,0 +1,21 @@
+/**
+ * https://material.io/guidelines/components/bottom-navigation.html#bottom-navigation-specs
+ */
+@import '../base.scss';
+@import '../var.scss';
+@import '../mixins.scss';
+
+:host {
+  display: block;
+}
+
+
+ol {
+  height: 56px;
+  max-height: 56px;
+  line-height: $tab-head-height;
+  display: flex;
+  width: 100%;
+  border-spacing: $content-margin-large 0;
+  justify-content: space-around;
+}

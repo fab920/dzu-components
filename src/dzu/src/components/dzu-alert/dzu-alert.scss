@@ -1,0 +1,34 @@
+@import '../base.scss';
+@import '../var.scss';
+@import '../bg.scss';
+
+// https://material.io/components/snackbars#specs
+
+:host {
+  display: inline-block;
+}
+
+/**
+ * If you need border/radius asign extra class
+ * for bg color info, warning, error, ... use bg-XXX
+ * event .alert-medium mit h-padding $content-padding-medium
+ */
+.alert {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: $content-padding;
+  gap: $content-padding;
+  max-width: 400px;
+  min-height: 48px;
+
+  // Icons
+  > div {
+    flex: 24px;
+  }
+
+  // Text
+  > span {
+    padding-right: $content-padding-large;
+  }
+}

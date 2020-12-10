@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/dzu.esm.js"></script>
+  <script nomodule src="/build/dzu.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+  </style>
+
+</head>
+<body>
+
+  <dzu-alert level="info" src="/img/darkgray/information.png" is-closeable="true">
+    Hello World
+  </dzu-alert>
+
+  <dzu-alert level="error">
+    Hello World2
+  </dzu-alert>
+
+  <dzu-alert level="warning">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia bibendum quam, sed sollicitudin risus suscipit quis. Nullam feugiat eget orci at blandit. Integer blandit purus sed dui finibus, vitae mollis mauris sodales.
+  </dzu-alert>
+
+  <br/><br/>
+
+  <dzu-bcrumbs>
+    <dzu-bcrumb>
+      Step 1
+    </dzu-bcrumb>
+    <dzu-bcrumb active="true">
+      Step 2
+    </dzu-bcrumb>
+    <dzu-bcrumb disabled="true">
+      Step 3
+    </dzu-bcrumb>
+  </dzu-bcrumbs>
+
+  <dzu-icon name="help" size="72" color="blue"></dzu-icon>
+
+  <dzu-bottomnav>
+    <dzu-bottomnav-item id="ownpostings-tab" src="/img/24x24/person-outline.png" active="true" href="previewOwnPostings.php">
+      Eigene Artikel
+    </dzu-bottomnav-item>
+    <dzu-bottomnav-item id="bookmark-tab" icon="bookmark" href="previewOwnPostings.php">
+      Lesezeichen
+    </dzu-bottomnav-item>
+  </dzu-bottomnav>
+</body>
+<script>
+  document.body.addEventListener("closed", (event) => {
+    console.log(event);
+  });
+</script>
+</html>

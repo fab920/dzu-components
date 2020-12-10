@@ -1,0 +1,62 @@
+/**
+ * https://material.io/guidelines/components/bottom-navigation.html#bottom-navigation-specs
+ */
+@import '../base.scss';
+@import '../var.scss';
+@import '../mixins.scss';
+
+:host {
+  display: inline-block;
+}
+
+li {
+  height: 56px;
+  position: relative;
+  display: inline-block;
+  min-width: 32px; /* analog zu den Icons plus je 4 px padding links und rechts*/
+  text-align: center;
+  margin: 0 $content-margin-medium;
+  cursor: pointer;
+  padding: 8px 0 10px 0;
+  transition: $medium;
+  box-sizing: border-box;
+  line-height: 16px;
+  color: $darkgray;
+  @include no-select;
+  cursor: pointer;
+
+  // Make everthing clickable
+  > a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+
+  [role='img'] {
+    cursor: pointer;
+  }
+
+  .title {
+    top: 24px + 8px;
+    display: inline-block;
+    font-size: 12px;
+  }
+
+  &.white {
+    color: $white;
+  }
+
+  &[aria-selected='true'] {
+    color: $darkblue;
+    padding-top: 6px;
+    line-height: 18px;
+
+    .title {
+      top: 24px + 12px;
+      line-height: 14px;
+      font-size: 14px;
+      text-decoration: none;
+    }
+  }
+}
+

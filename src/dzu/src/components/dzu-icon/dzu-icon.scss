@@ -1,0 +1,13 @@
+@import '../base.scss';
+
+:host {
+  display: inline-block;
+}
+
+@each $size in 72, 48, 32, 24, 18, 16, 14, 12 {
+  .ft-#{$size} {
+    width: #{$size}px;
+    height: #{$size}px;
+    font-size: #{$size}px;
+  }
+}

@@ -1,0 +1,21 @@
+@mixin no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	
+	/* HACK to remove dotted line in Firefox */
+	&::-moz-focus-inner {
+		padding: 0;
+		border: 0;
+	}
+
+	/* Doteted line entfernen */
+	&:active,
+	&:hover,
+	&:focus {
+		outline: 0 none;
+		background: transparent; // was inherit, but that makes problems with semi transparent stuff
+	}
+}
