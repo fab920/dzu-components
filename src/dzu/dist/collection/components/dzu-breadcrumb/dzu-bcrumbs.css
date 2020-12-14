@@ -1,0 +1,201 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * Paper Schatten
+ * http://www.google.com/design/spec/what-is-material/elevation-shadows.html
+ * https://www.polymer-project.org/0.5/docs/elements/material.html#shadow-effect
+ */
+/* Siehe http://www.google.com/design/spec/components/tabs.html#tabs-specs*/
+/**
+ * Transition speed
+ * fast für Aktionen bei denen der Nutzer Warten muss
+ * slow für "dekorative" Aktionen zb hover
+ */
+/** Layout properties for cards **/
+/**
+ * TODO get rid of all these colors
+ */
+/* Siehe http://www.google.com/design/spec/components/tabs.html#tabs-specs*/
+/**
+ * Transition speed
+ * fast für Aktionen bei denen der Nutzer Warten muss
+ * slow für "dekorative" Aktionen zb hover
+ */
+/* Anlog zu $.fx.speeds.fast */
+/** Layout properties for cards **/
+/**
+ * Farbschemata
+ */
+.bg-white {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.bg-lightgray {
+  background-color: #e6e6e6;
+  color: #000000;
+}
+
+.bg-gray {
+  background-color: #aaaaaa;
+  color: #000000;
+}
+
+.bg-darkgray {
+  background-color: #6e6e6e;
+  color: #ffffff;
+}
+
+.bg-green {
+  background-color: #2CAC6E;
+  color: #000000;
+}
+
+.bg-darkgreen {
+  background-color: #09A359;
+  color: #ffffff;
+}
+
+.bg-lightblue {
+  background-color: #d1e1f6;
+  color: #000000;
+}
+
+.bg-blue {
+  background-color: #a4c0e4;
+  color: #000000;
+}
+
+.darkblue {
+  color: #074D7E;
+}
+
+.bg-darkblue {
+  background-color: #074D7E;
+  color: #ffffff;
+}
+
+.bg-red {
+  background-color: #a61400;
+  color: #ffffff;
+}
+
+.bg-lightyellow {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.bg-yellow {
+  background-color: #FFF6D2;
+  color: #000000;
+}
+
+.bg-darkyellow {
+  background-color: #ffe78d;
+  color: #000000;
+}
+
+/* Spezielle Farben */
+.bg-twitter {
+  background: #55acee;
+}
+
+.bg-facebook {
+  background: #3B5998;
+}
+
+.bg-whatsapp {
+  background: #34af23;
+}
+
+.bg-linkedin {
+  background: #4875B4;
+}
+
+.bg-signal {
+  background: #2090ea;
+}
+
+.bg-wechat {
+  background: #8ad129;
+}
+
+:host {
+  display: block;
+}
+
+/**
+ * @module
+ *
+ * breadcrumb Navigation
+ */
+.bcrumbs {
+  display: block;
+  /* inline-block führt zu einem margin-bottom, der nicht zu beseitigen ist */
+  line-height: 48px;
+  height: 48px;
+  overflow: hidden;
+  user-select: none;
+  background-color: #a4c0e4;
+}
+
+.bcrumbs > * {
+  background-color: #a4c0e4;
+}
+
+/**
+ * Farben
+ */
+.bcrumbs-darkblue > * {
+  background-color: #074D7E;
+  color: white;
+}
+.bcrumbs-darkblue > *[aria-selected]:after, .bcrumbs-darkblue > *:hover:after, .bcrumbs-darkblue > *[aria-selected], .bcrumbs-darkblue > *:hover {
+  background-color: #a4c0e4;
+}
+.bcrumbs-darkblue > *:after {
+  background-color: #074D7E;
+}
+
+.bcrumbs-blue > * {
+  background-color: #a4c0e4;
+  color: white;
+}
+.bcrumbs-blue > *[aria-selected]:after, .bcrumbs-blue > *:hover:after, .bcrumbs-blue > *[aria-selected], .bcrumbs-blue > *:hover {
+  background-color: #074D7E;
+}
+.bcrumbs-blue > *:after {
+  background-color: #a4c0e4;
+}
+
+/**
+ * Lets add the numbers for each link using CSS counters.
+ * flag is the name of the counter.
+ * to be defined using counter-reset in the parent element of the links
+ * we will use the :before element to show numbers
+ * TODO if needed
+ */
+/*
+.bcrumbs-counter {
+	counter-reset: flag;
+}
+
+.bcrumbs-counter li:before {
+	content: counter(flag);
+	counter-increment: flag;
+	/ * some styles now * /
+	border-radius: 100%;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin: 8px 0;
+	position: absolute;
+	top: 0;
+	left: 30px;
+	background: #444;
+	background: linear-gradient(#444, #222);
+	font-weight: bold;
+}*/

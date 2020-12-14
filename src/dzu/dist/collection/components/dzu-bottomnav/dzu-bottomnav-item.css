@@ -1,0 +1,93 @@
+@charset "UTF-8";
+/**
+ * https://material.io/guidelines/components/bottom-navigation.html#bottom-navigation-specs
+ */
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * Paper Schatten
+ * http://www.google.com/design/spec/what-is-material/elevation-shadows.html
+ * https://www.polymer-project.org/0.5/docs/elements/material.html#shadow-effect
+ */
+/* Siehe http://www.google.com/design/spec/components/tabs.html#tabs-specs*/
+/**
+ * Transition speed
+ * fast für Aktionen bei denen der Nutzer Warten muss
+ * slow für "dekorative" Aktionen zb hover
+ */
+/** Layout properties for cards **/
+/**
+ * TODO get rid of all these colors
+ */
+/* Siehe http://www.google.com/design/spec/components/tabs.html#tabs-specs*/
+/**
+ * Transition speed
+ * fast für Aktionen bei denen der Nutzer Warten muss
+ * slow für "dekorative" Aktionen zb hover
+ */
+/* Anlog zu $.fx.speeds.fast */
+/** Layout properties for cards **/
+:host {
+  display: inline-block;
+}
+
+li {
+  height: 56px;
+  position: relative;
+  display: inline-block;
+  min-width: 32px;
+  /* analog zu den Icons plus je 4 px padding links und rechts*/
+  text-align: center;
+  margin: 0 12px;
+  cursor: pointer;
+  padding: 8px 0 10px 0;
+  transition: 0.4s;
+  box-sizing: border-box;
+  line-height: 16px;
+  color: #6e6e6e;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  /* HACK to remove dotted line in Firefox */
+  /* Doteted line entfernen */
+  cursor: pointer;
+}
+li::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+li:active, li:hover, li:focus {
+  outline: 0 none;
+  background: transparent;
+}
+li > a {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+li [role=img] {
+  cursor: pointer;
+}
+li .title {
+  top: 32px;
+  display: inline-block;
+  font-size: 12px;
+}
+li.white {
+  color: #ffffff;
+}
+li[aria-selected=true] {
+  color: #074D7E;
+  padding-top: 6px;
+  line-height: 18px;
+}
+li[aria-selected=true] .title {
+  top: 36px;
+  line-height: 14px;
+  font-size: 14px;
+  text-decoration: none;
+}

@@ -9,5 +9,11 @@
     "www/**/*",
     "!www/lib/**/*",
     "!www/**/*.map"
+  ],
+  "outputTargets": [
+    {
+      "type": "dist-custom-elements-bundle",
+      "type": "dist",
+    }
   ]
 }
