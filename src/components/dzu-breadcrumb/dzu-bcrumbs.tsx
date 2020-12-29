@@ -1,31 +1,25 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, Host } from '@stencil/core';
+import { createColorClasses } from '../../utils/utils';
+import { Color } from '@ionic/core';
 
 @Component({
   tag: 'dzu-bcrumbs',
   styleUrl: 'dzu-bcrumbs.scss',
   shadow: true
 })
-export class DzuBcrumbs {
+export class Bcrumbs {
 
-  /**
-   *
-   */
-  @Prop() class: string;
-
-  @Prop() color: string;
-
-  private getClass(): string {
-    let str = "bcrumbs noselect " + this.class;
-    return str;
-  }
-
+  @Prop() color: Color = "primary";
 
   render() {
-    return <div>
-      <div itemprop="breadcrumb" class={this.getClass()}>
+    const {color} = this;
+    return <Host
+        class={createColorClasses(color, {})}
+      itemprop="breadcrumb" >
+      <div class="bcrumbs noselect">
         <slot></slot>
       </div>
-    </div>
+    </Host>
     ;
   }
 }

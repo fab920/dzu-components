@@ -8,10 +8,6 @@
   &:first-child {
     padding-left: $content-padding-large;
   }
-  /*we dont need a border on the arrow after the last link*/
-/*  &:last-child:after {
-    box-shadow: none;
-  }*/
 }
 
 .bcrumb {
@@ -19,34 +15,11 @@
   padding-right: $head-height / 2;
   padding-left: $head-height;
   transition: $slow;
-  /*padding: 0 8px 0 24px;*/
   position: relative;
-  /*background-color: $pc-dark-bg;*/
-  color: $pc-dark-c;
 
-  /*background-color: $pc-dark-bg;*/
-
-  &[onclick] {
-    text-decoration: none;
-  }
-
-  &[aria-selected]:after,
-  &:hover:after,
-  &[aria-selected],
-  &:hover {
-    /*background-color: $pc-dark-bg;*/
-    color: #ff0000;
-    /*color: white;*/
-  }
-
-  &[aria-disabled]:after,
-  &[aria-disabled] {
-    /*background-color: $pc-dark-bg;*/
-    color: #ccc;
-    /*color: white;*/
-  }
-
-
+  background: var(--ion-color-base);
+  color: var(--ion-color-contrast);
+  cursor: pointer;
 
   /*adding the arrows for the breadcrumbs using rotated pseudo elements */
   &:after {
@@ -58,12 +31,30 @@
     height: $head-height;
     transform: scale(0.707) rotate(45deg);
     z-index: 1;
-    /*background-color: $pc-dark-bg;*/
-    color: $pc-c;
+    background-color: var(--ion-color-base);
+    color: var(--ion-color-shade);
     box-shadow:
       2px -2px 0 2px rgba(0, 0, 0, 0.4),
       3px -3px 0 2px rgba(255, 255, 255, 0.1);
     border-radius: 0 5px 0 50px;
     transition: $slow;
   }
+
+  &:hover:after,
+  &:hover {
+    background-color: var(--ion-color-shade);
+  }
+
+  &.active,
+  &.active:after {
+    background-color: var(--ion-color-shade);
+  }
+
+  &.disabled,
+  &.disabled:after {
+    color: rgba(var(--ion-color-contrast-rgb), .6);
+    background-color: var(--ion-color-tint);
+    cursor: not-allowed;
+  }
 }
+

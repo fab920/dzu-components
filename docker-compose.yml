@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  ionic:
+    build: .
+    ports:
+      - "3333:3333"
+      - "8100:8100"
+      - "35729:35729"
+      - "53703:53703"
+    volumes:
+      - .:/src
+    command: bash -c "cd /src/ && npm install && npx stencil build --serve --no-open --watch --debug --docs-readme"

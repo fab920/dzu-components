@@ -22,6 +22,9 @@
   max-width: 400px;
   min-height: 48px;
 
+  background: var(--ion-color-base);
+  color: var(--ion-color-contrast);
+
   // Icons
   > div {
     flex: 24px;
@@ -29,6 +32,7 @@
 
   // Text
   > span {
+
     padding-right: $content-padding-large;
   }
 }

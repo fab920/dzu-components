@@ -1,5 +1,7 @@
-import { Component, Element, Event, EventEmitter, Prop, State, h } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Prop, State, h, Host } from '@stencil/core';
 import { createAnimation } from '@ionic/core';
+
+import { createColorClasses } from '../../utils/utils';
 
 import { Level } from '../level';
 
@@ -61,26 +63,28 @@ export class DzuAlert {
       this.closed.emit(this);
   }
 
-  private getClass(): string {
-    return "alert " + style[this.level].background;
-  }
-
   render() {
+    const color = this.level == Level.info ? "primary" : this.level == Level.warning ? "warning" : "danger";
+
     return (
-      <div class={this.getClass()} style={{ display: this.visible ? 'flex' : 'none' }}>
-        <div>
-          <dzu-icon name={style[this.level].icon} size={24} color={style[this.level].color}/>
+      <Host
+        class={createColorClasses(color, {})}
+      >
+        <div class="alert" style={{ display: this.visible ? 'flex' : 'none' }}>
+          <div>
+            <dzu-icon name={style[this.level].icon} size={24} color={style[this.level].color}/>
+          </div>
+          <span>
+            <slot></slot>
+          </span>
+          {this.isCloseable
+            ? <div class="is-clickable tf-right" onClick={() => this.close()} title="close">
+                <dzu-icon name="close" size={24} color="red"/>
+              </div>
+            : ""
+            }
         </div>
-        <span>
-          <slot></slot>
-        </span>
-        {this.isCloseable
-          ? <div class="is-clickable tf-right" onClick={() => this.close()} title="close">
-              <dzu-icon name="close" size={24} color="red"/>
-            </div>
-          : ""
-          }
-      </div>
+      </Host>
     );
   }
 }

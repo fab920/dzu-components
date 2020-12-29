@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
   <script type="module" src="/build/dzu.esm.js"></script>
   <script nomodule src="/build/dzu.js"></script>
 
@@ -32,16 +33,42 @@
   <br/><br/>
 
   <dzu-bcrumbs>
-    <dzu-bcrumb>
+    <dzu-bcrumb active="true">
       Step 1
     </dzu-bcrumb>
-    <dzu-bcrumb active="true">
+    <dzu-bcrumb disabled="true">
       Step 2
     </dzu-bcrumb>
     <dzu-bcrumb disabled="true">
       Step 3
     </dzu-bcrumb>
+    <dzu-bcrumb disabled="true">
+      Step 4
+    </dzu-bcrumb>
+    <dzu-bcrumb disabled="true">
+      Step 5
+    </dzu-bcrumb>
   </dzu-bcrumbs>
+
+  <dzu-bcrumbs color="warning">
+    <dzu-bcrumb>
+      Step 1
+    </dzu-bcrumb>
+    <dzu-bcrumb>
+      Step 2
+    </dzu-bcrumb>
+    <dzu-bcrumb active="true">
+      Step 3
+    </dzu-bcrumb>
+    <dzu-bcrumb disabled="true">
+      Step 4
+    </dzu-bcrumb>
+    <dzu-bcrumb disabled="true">
+      Step 5
+    </dzu-bcrumb>
+  </dzu-bcrumbs>
+
+  <ion-button color="danger">Test</ion-button>
 
   <dzu-icon name="help" size="72" color="blue"></dzu-icon>
 
