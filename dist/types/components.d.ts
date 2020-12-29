@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
-import { Level } from "./components/level";
+import { Level, } from "./components/level";
+import { Color, } from "@ionic/core";
 export namespace Components {
     interface DzuAlert {
         "class": string;
@@ -22,13 +23,14 @@ export namespace Components {
     }
     interface DzuBcrumb {
         "active": boolean;
-        "class": string;
-        "color": string;
         "disabled": boolean;
+        /**
+          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+         */
+        "href": string | undefined;
     }
     interface DzuBcrumbs {
-        "class": string;
-        "color": string;
+        "color": Color;
     }
     interface DzuBottomnav {
         "class": string;
@@ -47,20 +49,6 @@ export namespace Components {
         "color": string;
         "name": string;
         "size": number;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
     }
 }
 declare global {
@@ -100,12 +88,6 @@ declare global {
         prototype: HTMLDzuIconElement;
         new (): HTMLDzuIconElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "dzu-alert": HTMLDzuAlertElement;
         "dzu-bcrumb": HTMLDzuBcrumbElement;
@@ -113,7 +95,6 @@ declare global {
         "dzu-bottomnav": HTMLDzuBottomnavElement;
         "dzu-bottomnav-item": HTMLDzuBottomnavItemElement;
         "dzu-icon": HTMLDzuIconElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -133,13 +114,22 @@ declare namespace LocalJSX {
     }
     interface DzuBcrumb {
         "active"?: boolean;
-        "class"?: string;
-        "color"?: string;
         "disabled"?: boolean;
+        /**
+          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+         */
+        "href"?: string | undefined;
+        /**
+          * Emitted when the breadcrumb loses focus.
+         */
+        "onIonBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the breadcrumb has focus.
+         */
+        "onIonFocus"?: (event: CustomEvent<void>) => void;
     }
     interface DzuBcrumbs {
-        "class"?: string;
-        "color"?: string;
+        "color"?: Color;
     }
     interface DzuBottomnav {
         "class"?: string;
@@ -159,20 +149,6 @@ declare namespace LocalJSX {
         "name"?: string;
         "size"?: number;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface IntrinsicElements {
         "dzu-alert": DzuAlert;
         "dzu-bcrumb": DzuBcrumb;
@@ -180,7 +156,6 @@ declare namespace LocalJSX {
         "dzu-bottomnav": DzuBottomnav;
         "dzu-bottomnav-item": DzuBottomnavItem;
         "dzu-icon": DzuIcon;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -193,7 +168,6 @@ declare module "@stencil/core" {
             "dzu-bottomnav": LocalJSX.DzuBottomnav & JSXBase.HTMLAttributes<HTMLDzuBottomnavElement>;
             "dzu-bottomnav-item": LocalJSX.DzuBottomnavItem & JSXBase.HTMLAttributes<HTMLDzuBottomnavItemElement>;
             "dzu-icon": LocalJSX.DzuIcon & JSXBase.HTMLAttributes<HTMLDzuIconElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }

@@ -1,1 +1,21 @@
-const o=["Tab","ArrowDown","Space","Escape"," ","Shift","Enter","ArrowLeft","ArrowRight","ArrowUp"],t=()=>{let t=[],c=!0;const e=document,n=o=>{t.forEach((o=>o.classList.remove("ion-focused"))),o.forEach((o=>o.classList.add("ion-focused"))),t=o},r=()=>{c=!1,n([])};e.addEventListener("keydown",(t=>{c=o.includes(t.key),c||n([])})),e.addEventListener("focusin",(o=>{if(c&&o.composedPath){const t=o.composedPath().filter((o=>!!o.classList&&o.classList.contains("ion-focusable")));n(t)}})),e.addEventListener("focusout",(()=>{e.activeElement===e.body&&n([])})),e.addEventListener("touchstart",r),e.addEventListener("mousedown",r)};export{t as startFocusVisible}
+const e = [ "Tab", "ArrowDown", "Space", "Escape", " ", "Shift", "Enter", "ArrowLeft", "ArrowRight", "ArrowUp" ], startFocusVisible = () => {
+  let t = [], o = !0;
+  const s = document, setFocus = e => {
+    t.forEach(e => e.classList.remove("ion-focused")), e.forEach(e => e.classList.add("ion-focused")), 
+    t = e;
+  }, pointerDown = () => {
+    o = !1, setFocus([]);
+  };
+  s.addEventListener("keydown", t => {
+    o = e.includes(t.key), o || setFocus([]);
+  }), s.addEventListener("focusin", e => {
+    if (o && e.composedPath) {
+      const t = e.composedPath().filter(e => !!e.classList && e.classList.contains("ion-focusable"));
+      setFocus(t);
+    }
+  }), s.addEventListener("focusout", () => {
+    s.activeElement === s.body && setFocus([]);
+  }), s.addEventListener("touchstart", pointerDown), s.addEventListener("mousedown", pointerDown);
+};
+
+export { startFocusVisible }

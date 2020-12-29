@@ -140,6 +140,8 @@
   gap: 4px;
   max-width: 400px;
   min-height: 48px;
+  background: var(--ion-color-base);
+  color: var(--ion-color-contrast);
 }
 .alert > div {
   flex: 24px;

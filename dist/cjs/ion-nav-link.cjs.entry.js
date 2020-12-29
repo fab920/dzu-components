@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-bc026f74.js');
+const index = require('./index-ed820112.js');
 
 const navLink = (el, routerDirection, component, componentProps, routerAnimation) => {
   const nav = el.closest('ion-nav');
@@ -25,20 +25,20 @@ const navLink = (el, routerDirection, component, componentProps, routerAnimation
 };
 
 const NavLink = class {
-  constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-    /**
-     * The transition direction when navigating to another page.
-     */
-    this.routerDirection = 'forward';
-    this.onClick = () => {
-      return navLink(this.el, this.routerDirection, this.component, this.componentProps, this.routerAnimation);
-    };
-  }
-  render() {
-    return (index.h(index.Host, { onClick: this.onClick }));
-  }
-  get el() { return index.getElement(this); }
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * The transition direction when navigating to another page.
+         */
+        this.routerDirection = 'forward';
+        this.onClick = () => {
+            return navLink(this.el, this.routerDirection, this.component, this.componentProps, this.routerAnimation);
+        };
+    }
+    render() {
+        return (index.h(index.Host, { onClick: this.onClick }));
+    }
+    get el() { return index.getElement(this); }
 };
 
 exports.ion_nav_link = NavLink;

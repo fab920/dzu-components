@@ -1,1 +1,46 @@
-const e="ionKeyboardDidShow",o="ionKeyboardDidHide";let t={},d={},i=!1;const a=()=>{t={},d={},i=!1},n=e=>{h(e),e.visualViewport&&(d=p(e.visualViewport),e.visualViewport.onresize=()=>{D(e),r()||y(e)?s(e):c(e)&&b(e)})},h=e=>{e.addEventListener("keyboardDidShow",(o=>s(e,o))),e.addEventListener("keyboardDidHide",(()=>b(e)))},s=(e,o)=>{f(e,o),i=!0},b=e=>{w(e),i=!1},r=()=>!i&&t.width===d.width&&(t.height-d.height)*d.scale>150,y=e=>i&&!c(e),c=e=>i&&d.height===e.innerHeight,f=(e,o)=>{const t=new CustomEvent("ionKeyboardDidShow",{detail:{keyboardHeight:o?o.keyboardHeight:e.innerHeight-d.height}});e.dispatchEvent(t)},w=e=>{const o=new CustomEvent("ionKeyboardDidHide");e.dispatchEvent(o)},D=e=>{t=Object.assign({},d),d=p(e.visualViewport)},p=e=>({width:Math.round(e.width),height:Math.round(e.height),offsetTop:e.offsetTop,offsetLeft:e.offsetLeft,pageTop:e.pageTop,pageLeft:e.pageLeft,scale:e.scale});export{o as KEYBOARD_DID_CLOSE,e as KEYBOARD_DID_OPEN,p as copyVisualViewport,c as keyboardDidClose,r as keyboardDidOpen,y as keyboardDidResize,a as resetKeyboardAssist,b as setKeyboardClose,s as setKeyboardOpen,n as startKeyboardAssist,D as trackViewportChanges}
+const e = "ionKeyboardDidShow", t = "ionKeyboardDidHide";
+
+let i = {}, o = {}, d = !1;
+
+/**
+ * This is only used for tests
+ */
+const resetKeyboardAssist = () => {
+  i = {}, o = {}, d = !1;
+}, startKeyboardAssist = e => {
+  startNativeListeners(e), e.visualViewport && (o = copyVisualViewport(e.visualViewport), 
+  e.visualViewport.onresize = () => {
+    trackViewportChanges(e), keyboardDidOpen() || keyboardDidResize(e) ? setKeyboardOpen(e) : keyboardDidClose(e) && setKeyboardClose(e);
+  });
+}, startNativeListeners = e => {
+  e.addEventListener("keyboardDidShow", t => setKeyboardOpen(e, t)), e.addEventListener("keyboardDidHide", () => setKeyboardClose(e));
+}, setKeyboardOpen = (e, t) => {
+  fireKeyboardOpenEvent(e, t), d = !0;
+}, setKeyboardClose = e => {
+  fireKeyboardCloseEvent(e), d = !1;
+}, keyboardDidOpen = () => {
+  const e = (i.height - o.height) * o.scale;
+  return !d && i.width === o.width && e > 150;
+}, keyboardDidResize = e => d && !keyboardDidClose(e), keyboardDidClose = e => d && o.height === e.innerHeight, fireKeyboardOpenEvent = (e, t) => {
+  const i = t ? t.keyboardHeight : e.innerHeight - o.height, d = new CustomEvent("ionKeyboardDidShow", {
+    detail: {
+      keyboardHeight: i
+    }
+  });
+  e.dispatchEvent(d);
+}, fireKeyboardCloseEvent = e => {
+  const t = new CustomEvent("ionKeyboardDidHide");
+  e.dispatchEvent(t);
+}, trackViewportChanges = e => {
+  i = Object.assign({}, o), o = copyVisualViewport(e.visualViewport);
+}, copyVisualViewport = e => ({
+  width: Math.round(e.width),
+  height: Math.round(e.height),
+  offsetTop: e.offsetTop,
+  offsetLeft: e.offsetLeft,
+  pageTop: e.pageTop,
+  pageLeft: e.pageLeft,
+  scale: e.scale
+});
+
+export { t as KEYBOARD_DID_CLOSE, e as KEYBOARD_DID_OPEN, copyVisualViewport, keyboardDidClose, keyboardDidOpen, keyboardDidResize, resetKeyboardAssist, setKeyboardClose, setKeyboardOpen, startKeyboardAssist, trackViewportChanges }

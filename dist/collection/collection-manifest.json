@@ -5,13 +5,12 @@
     "./components/dzu-bottomnav/dzu-bottomnav.js",
     "./components/dzu-breadcrumb/dzu-bcrumb.js",
     "./components/dzu-breadcrumb/dzu-bcrumbs.js",
-    "./components/dzu-icon/dzu-icon.js",
-    "./components/my-component/my-component.js"
+    "./components/dzu-icon/dzu-icon.js"
   ],
   "compiler": {
     "name": "@stencil/core",
-    "version": "2.3.0",
-    "typescriptVersion": "4.0.5"
+    "version": "1.12.2",
+    "typescriptVersion": "3.8.3"
   },
   "collections": [
     {

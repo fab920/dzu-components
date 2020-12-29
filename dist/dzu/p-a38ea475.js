@@ -1,1 +1,18 @@
-const r=async(r,e,t,n,i)=>{if(r)return r.attachViewToDom(e,t,i,n);if("string"!=typeof t&&!(t instanceof HTMLElement))throw new Error("framework delegate is missing");const s="string"==typeof t?e.ownerDocument&&e.ownerDocument.createElement(t):t;return n&&n.forEach((r=>s.classList.add(r))),i&&Object.assign(s,i),e.appendChild(s),s.componentOnReady&&await s.componentOnReady(),s},e=(r,e)=>{if(e){if(r)return r.removeViewFromDom(e.parentElement,e);e.remove()}return Promise.resolve()};export{r as a,e as d}
+const attachComponent = async (e, n, t, o, r) => {
+  if (e) return e.attachViewToDom(n, t, r, o);
+  if ("string" != typeof t && !(t instanceof HTMLElement)) throw new Error("framework delegate is missing");
+  const a = "string" == typeof t ? n.ownerDocument && n.ownerDocument.createElement(t) : t;
+  return o && o.forEach(e => a.classList.add(e)), r && Object.assign(a, r), n.appendChild(a), 
+  a.componentOnReady && await a.componentOnReady(), a;
+}, detachComponent = (e, n) => {
+  if (n) {
+    if (e) {
+      const t = n.parentElement;
+      return e.removeViewFromDom(t, n);
+    }
+    n.remove();
+  }
+  return Promise.resolve();
+};
+
+export { attachComponent as a, detachComponent as d }

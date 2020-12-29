@@ -2,18 +2,18 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-bc026f74.js');
-const ionicGlobal = require('./ionic-global-e7b2dbf9.js');
+const index = require('./index-ed820112.js');
+const ionicGlobal = require('./ionic-global-8f95b43a.js');
 
-const rowCss = ":host{display:flex;flex-wrap:wrap}";
+const rowCss = ":host{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}";
 
 const Row = class {
-  constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-  }
-  render() {
-    return (index.h(index.Host, { class: ionicGlobal.getIonMode(this) }, index.h("slot", null)));
-  }
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+    }
+    render() {
+        return (index.h(index.Host, { class: ionicGlobal.getIonMode(this) }, index.h("slot", null)));
+    }
 };
 Row.style = rowCss;
 

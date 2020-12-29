@@ -1,1 +1,22 @@
-const n=(n,o)=>null!==o.closest(n),o=(n,o)=>"string"==typeof n&&n.length>0?Object.assign({"ion-color":!0,["ion-color-"+n]:!0},o):o,r=n=>{const o={};return(n=>void 0!==n?(Array.isArray(n)?n:n.split(" ")).filter((n=>null!=n)).map((n=>n.trim())).filter((n=>""!==n)):[])(n).forEach((n=>o[n]=!0)),o},t=/^[a-z][a-z0-9+\-.]*:/,l=async(n,o,r,l)=>{if(null!=n&&"#"!==n[0]&&!t.test(n)){const t=document.querySelector("ion-router");if(t)return null!=o&&o.preventDefault(),t.push(n,r,l)}return!1};export{o as c,r as g,n as h,l as o}
+const hostContext = (r, t) => null !== t.closest(r), createColorClasses = (r, t) => "string" == typeof r && r.length > 0 ? Object.assign({
+  "ion-color": !0,
+  [`ion-color-${r}`]: !0
+}, t) : t, getClassMap = r => {
+  const t = {};
+  return (r => {
+    if (void 0 !== r) {
+      return (Array.isArray(r) ? r : r.split(" ")).filter(r => null != r).map(r => r.trim()).filter(r => "" !== r);
+    }
+    return [];
+  })(r).forEach(r => t[r] = !0), t;
+}, r = /^[a-z][a-z0-9+\-.]*:/, openURL = async (t, e, n, o) => {
+  if (null != t && "#" !== t[0] && !r.test(t)) {
+    const r = document.querySelector("ion-router");
+    if (r) return null != e && e.preventDefault(), r.push(t, n, o);
+  }
+  return !1;
+};
+
+/**
+ * Create the mode and color classes for the component based on the classes passed in
+ */ export { createColorClasses as c, getClassMap as g, hostContext as h, openURL as o }

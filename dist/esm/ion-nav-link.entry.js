@@ -1,4 +1,4 @@
-import { r as registerInstance, h, d as getElement, H as Host } from './index-74b1cdca.js';
+import { r as registerInstance, h, e as getElement, H as Host } from './index-d4eb92f9.js';
 
 const navLink = (el, routerDirection, component, componentProps, routerAnimation) => {
   const nav = el.closest('ion-nav');
@@ -21,20 +21,20 @@ const navLink = (el, routerDirection, component, componentProps, routerAnimation
 };
 
 const NavLink = class {
-  constructor(hostRef) {
-    registerInstance(this, hostRef);
-    /**
-     * The transition direction when navigating to another page.
-     */
-    this.routerDirection = 'forward';
-    this.onClick = () => {
-      return navLink(this.el, this.routerDirection, this.component, this.componentProps, this.routerAnimation);
-    };
-  }
-  render() {
-    return (h(Host, { onClick: this.onClick }));
-  }
-  get el() { return getElement(this); }
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+        /**
+         * The transition direction when navigating to another page.
+         */
+        this.routerDirection = 'forward';
+        this.onClick = () => {
+            return navLink(this.el, this.routerDirection, this.component, this.componentProps, this.routerAnimation);
+        };
+    }
+    render() {
+        return (h(Host, { onClick: this.onClick }));
+    }
+    get el() { return getElement(this); }
 };
 
 export { NavLink as ion_nav_link };

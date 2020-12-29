@@ -1,1 +1,46 @@
-const t=()=>{const t=document;let n=!1;t.addEventListener("backbutton",(()=>{if(n)return;let e=0,o=[];const i=new CustomEvent("ionBackButton",{bubbles:!1,detail:{register(t,n){o.push({priority:t,handler:n,id:e++})}}});t.dispatchEvent(i);const r=()=>{if(o.length>0){let t={priority:Number.MIN_SAFE_INTEGER,handler:()=>{},id:-1};o.forEach((n=>{n.priority>=t.priority&&(t=n)})),n=!0,o=o.filter((n=>n.id!==t.id)),(async t=>{try{if(t&&t.handler){const n=t.handler(r);null!=n&&await n}}catch(t){console.error(t)}})(t).then((()=>n=!1))}};r()}))},n=100,e=99;export{e as MENU_BACK_BUTTON_PRIORITY,n as OVERLAY_BACK_BUTTON_PRIORITY,t as startHardwareBackButton}
+const startHardwareBackButton = () => {
+  const t = document;
+  let e = !1;
+  t.addEventListener("backbutton", () => {
+    if (e) return;
+    let r = 0, n = [];
+    const i = new CustomEvent("ionBackButton", {
+      bubbles: !1,
+      detail: {
+        register(t, e) {
+          n.push({
+            priority: t,
+            handler: e,
+            id: r++
+          });
+        }
+      }
+    });
+    t.dispatchEvent(i);
+    const processHandlers = () => {
+      if (n.length > 0) {
+        let t = {
+          priority: Number.MIN_SAFE_INTEGER,
+          handler: () => {},
+          id: -1
+        };
+        n.forEach(e => {
+          e.priority >= t.priority && (t = e);
+        }), e = !0, n = n.filter(e => e.id !== t.id), (async t => {
+          try {
+            if (t && t.handler) {
+              const e = t.handler(processHandlers);
+              null != e && await e;
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        })(t).then(() => e = !1);
+      }
+    };
+    processHandlers();
+  });
+}, t = 100, e = 99;
+
+// 1 less than overlay priority since menu is displayed behind overlays
+export { e as MENU_BACK_BUTTON_PRIORITY, t as OVERLAY_BACK_BUTTON_PRIORITY, startHardwareBackButton }

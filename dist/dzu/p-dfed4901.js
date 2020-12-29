@@ -1,1 +1,82 @@
-import{n as t,p as o}from"./p-9d46771f.js";const e=e=>{let l,f,d,v,p=10*-u,m=0;const T=e.getBoolean("animated",!0)&&e.getBoolean("rippleEffect",!0),h=new WeakMap,w=o=>{p=t(o),S(o)},b=()=>{clearTimeout(v),v=void 0,f&&(k(!1),f=void 0)},E=t=>{f||void 0!==l&&null!==l.parentElement||(l=void 0,x(i(t),t))},S=t=>{x(void 0,t)},x=(t,e)=>{if(t&&t===f)return;clearTimeout(v),v=void 0;const{x:i,y:r}=o(e);if(f){if(h.has(f))throw new Error("internal error");f.classList.contains(c)||D(f,i,r),k(!0)}if(t){const o=h.get(t);o&&(clearTimeout(o),h.delete(t));const e=n(t)?0:a;t.classList.remove(c),v=setTimeout((()=>{D(t,i,r),v=void 0}),e)}f=t},D=(t,o,e)=>{m=Date.now(),t.classList.add(c);const i=T&&r(t);i&&i.addRipple&&(j(),d=i.addRipple(o,e))},j=()=>{void 0!==d&&(d.then((t=>t())),d=void 0)},k=t=>{j();const o=f;if(!o)return;const e=s-Date.now()+m;if(t&&e>0&&!n(o)){const t=setTimeout((()=>{o.classList.remove(c),h.delete(o)}),s);h.set(o,t)}else o.classList.remove(c)},y=document;y.addEventListener("ionScrollStart",(t=>{l=t.target,b()})),y.addEventListener("ionScrollEnd",(()=>{l=void 0})),y.addEventListener("ionGestureCaptured",b),y.addEventListener("touchstart",(o=>{p=t(o),E(o)}),!0),y.addEventListener("touchcancel",w,!0),y.addEventListener("touchend",w,!0),y.addEventListener("mousedown",(o=>{const e=t(o)-u;p<e&&E(o)}),!0),y.addEventListener("mouseup",(o=>{const e=t(o)-u;p<e&&S(o)}),!0)},i=t=>{if(!t.composedPath)return t.target.closest(".ion-activatable");{const o=t.composedPath();for(let t=0;t<o.length-2;t++){const e=o[t];if(e.classList&&e.classList.contains("ion-activatable"))return e}}},n=t=>t.classList.contains("ion-activatable-instant"),r=t=>{if(t.shadowRoot){const o=t.shadowRoot.querySelector("ion-ripple-effect");if(o)return o}return t.querySelector("ion-ripple-effect")},c="ion-activated",a=200,s=200,u=2500;export{e as startTapClick}
+import { n as e, p as t } from "./p-9d46771f.js";
+
+const startTapClick = a => {
+  let r, c, d, l, v = 10 * -i, u = 0;
+  const p = a.getBoolean("animated", !0) && a.getBoolean("rippleEffect", !0), f = new WeakMap, onTouchEnd = t => {
+    v = e(t), pointerUp(t);
+  }, cancelActive = () => {
+    clearTimeout(l), l = void 0, c && (removeActivated(!1), c = void 0);
+  }, pointerDown = e => {
+    c || void 0 !== r && null !== r.parentElement || (r = void 0, setActivatedElement(getActivatableTarget(e), e));
+  }, pointerUp = e => {
+    setActivatedElement(void 0, e);
+  }, setActivatedElement = (e, s) => {
+    // do nothing
+    if (e && e === c) return;
+    clearTimeout(l), l = void 0;
+    const {x: i, y: a} = t(s);
+    // deactivate selected
+        if (c) {
+      if (f.has(c)) throw new Error("internal error");
+      c.classList.contains(o) || addActivated(c, i, a), removeActivated(!0);
+    }
+    // activate
+        if (e) {
+      const t = f.get(e);
+      t && (clearTimeout(t), f.delete(e));
+      const s = isInstant(e) ? 0 : n;
+      e.classList.remove(o), l = setTimeout(() => {
+        addActivated(e, i, a), l = void 0;
+      }, s);
+    }
+    c = e;
+  }, addActivated = (e, t, n) => {
+    u = Date.now(), e.classList.add(o);
+    const s = p && getRippleEffect(e);
+    s && s.addRipple && (removeRipple(), d = s.addRipple(t, n));
+  }, removeRipple = () => {
+    void 0 !== d && (d.then(e => e()), d = void 0);
+  }, removeActivated = e => {
+    removeRipple();
+    const t = c;
+    if (!t) return;
+    const n = s - Date.now() + u;
+    if (e && n > 0 && !isInstant(t)) {
+      const e = setTimeout(() => {
+        t.classList.remove(o), f.delete(t);
+      }, s);
+      f.set(t, e);
+    } else t.classList.remove(o);
+  }, m = document;
+  m.addEventListener("ionScrollStart", e => {
+    r = e.target, cancelActive();
+  }), m.addEventListener("ionScrollEnd", () => {
+    r = void 0;
+  }), m.addEventListener("ionGestureCaptured", cancelActive), m.addEventListener("touchstart", t => {
+    v = e(t), pointerDown(t);
+  }, !0), m.addEventListener("touchcancel", onTouchEnd, !0), m.addEventListener("touchend", onTouchEnd, !0), 
+  m.addEventListener("mousedown", t => {
+    const o = e(t) - i;
+    v < o && pointerDown(t);
+  }, !0), m.addEventListener("mouseup", t => {
+    const o = e(t) - i;
+    v < o && pointerUp(t);
+  }, !0);
+}, getActivatableTarget = e => {
+  if (!e.composedPath) return e.target.closest(".ion-activatable");
+  {
+    const t = e.composedPath();
+    for (let e = 0; e < t.length - 2; e++) {
+      const o = t[e];
+      if (o.classList && o.classList.contains("ion-activatable")) return o;
+    }
+  }
+}, isInstant = e => e.classList.contains("ion-activatable-instant"), getRippleEffect = e => {
+  if (e.shadowRoot) {
+    const t = e.shadowRoot.querySelector("ion-ripple-effect");
+    if (t) return t;
+  }
+  return e.querySelector("ion-ripple-effect");
+}, o = "ion-activated", n = 200, s = 200, i = 2500;
+
+export { startTapClick }

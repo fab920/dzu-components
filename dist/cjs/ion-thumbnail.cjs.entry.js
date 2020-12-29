@@ -2,18 +2,18 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-bc026f74.js');
-const ionicGlobal = require('./ionic-global-e7b2dbf9.js');
+const index = require('./index-ed820112.js');
+const ionicGlobal = require('./ionic-global-8f95b43a.js');
 
-const thumbnailCss = ":host{--size:48px;--border-radius:0;border-radius:var(--border-radius);display:block;width:var(--size);height:var(--size)}::slotted(ion-img),::slotted(img){border-radius:var(--border-radius);width:100%;height:100%;object-fit:cover;overflow:hidden}";
+const thumbnailCss = ":host{--size:48px;--border-radius:0;border-radius:var(--border-radius);display:block;width:var(--size);height:var(--size)}::slotted(ion-img),::slotted(img){border-radius:var(--border-radius);width:100%;height:100%;-o-object-fit:cover;object-fit:cover;overflow:hidden}";
 
 const Thumbnail = class {
-  constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-  }
-  render() {
-    return (index.h(index.Host, { class: ionicGlobal.getIonMode(this) }, index.h("slot", null)));
-  }
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+    }
+    render() {
+        return (index.h(index.Host, { class: ionicGlobal.getIonMode(this) }, index.h("slot", null)));
+    }
 };
 Thumbnail.style = thumbnailCss;
 
