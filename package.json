@@ -1,7 +1,7 @@
 {
-  "name": "@leoorg/dzu",
+  "name": "@leoorg/dzu-stencil",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "Dzu Stencil Components",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
