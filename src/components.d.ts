@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Level, } from "./components/level";
-import { Color, } from "@ionic/core";
+import { Level } from "./components/level";
+import { Color } from "@ionic/core";
 export namespace Components {
     interface DzuAlert {
         "class": string;

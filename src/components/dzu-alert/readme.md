@@ -28,11 +28,13 @@
 ### Depends on
 
 - [dzu-icon](../dzu-icon)
+- ion-icon
 
 ### Graph
 ```mermaid
 graph TD;
   dzu-alert --> dzu-icon
+  dzu-alert --> ion-icon
   dzu-icon --> ion-icon
   style dzu-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```

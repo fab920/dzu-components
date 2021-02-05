@@ -49,7 +49,7 @@ export class DzuBcrumb {
         aria-selected={active ? 'true' : null}
       >
         <div
-          class={{"bcrumb" : true, "disabled": disabled, "active": active}}
+          class={{"bcrumb": true, "disabled": disabled, "active": active}}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
         >

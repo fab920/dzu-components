@@ -69,6 +69,7 @@ export class DzuAlert {
     return (
       <Host
         class={createColorClasses(color, {})}
+        role="alert"
       >
         <div class="alert" style={{ display: this.visible ? 'flex' : 'none' }}>
           <div>
@@ -79,7 +80,7 @@ export class DzuAlert {
           </span>
           {this.isCloseable
             ? <div class="is-clickable tf-right" onClick={() => this.close()} title="close">
-                <dzu-icon name="close" size={24} color="red"/>
+                <ion-icon name="close"></ion-icon>
               </div>
             : ""
             }
